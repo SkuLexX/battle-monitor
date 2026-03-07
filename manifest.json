@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Damage Interceptor",
+  "name": "Battle Monitor",
   "version": "1.1",
   "host_permissions": ["https://demonicscans.org/*"],
   "permissions": ["storage", "scripting", "activeTab"],
