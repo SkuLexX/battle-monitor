@@ -36,7 +36,7 @@
 
     const id = payload.monster_id;
 
-    const autoRemoveDead = localStorage.getItem("autoRemoveDead")
+    const autoRemoveDead = localStorage.getItem("autoRemoveDead")==="true"
 
 
     if (url.includes(TARGET)) {
@@ -48,6 +48,7 @@
 
 
       if (autoRemoveDead && (atkRes.status == "error" && atkRes.message.includes("dead") || atkRes.hp.value == 0)) {
+        console.log(autoRemoveDead)
         const monsterCard = document.querySelector(`.monster-card[data-monster-id="${id}"]`);
         if (monsterCard) {
           monsterCard.remove();
