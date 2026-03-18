@@ -25,6 +25,10 @@
     const response = await origFetch(...args);
 
     const url = typeof args[0] === "string" ? args[0] : args[0].url;
+    if (!url.includes(TARGET) && !url.includes(JOIN_TARGET)) {
+      return response;
+    }
+
 
     const options = args[1] || {};
     let payload = {};
@@ -39,7 +43,6 @@
     const autoRemoveDead = localStorage.getItem("autoRemoveDead")==="true"
 
 
-    if (url.includes(TARGET)) {
 
       const clone = response.clone();
       const text = await clone.text();
@@ -83,7 +86,7 @@
       }
 
 
-    }
+    
     return response;
   };
   function showNotification(msg) {
